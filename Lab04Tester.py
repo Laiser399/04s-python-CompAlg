@@ -16,7 +16,7 @@ class Lab04Tester(LabTester):
         """Тестирование функции PolyInverseModOverZn фиксированным набором входных параметров."""
 
         sample = [([1, 2, 3, 7, 8, 9, -2], 4, 11), ([1, 2, 0, 1, -1], 4, 12), ([4, 9, -7, 1, 2, -3, 5], 5, 15), ([1, -2, 2, -8], 1, 3), ([3, 1, 2, 4, -1, 0, 1], 2, 8), ([1, 2, 1], 100, 3), ([89, 1], 6, 10), ([0, 1, 2, 3], 2, 3), ([1, 2, 3, 4, 5], 3, 1), ([0], 17, 7), ([2, 4, 5], 2, 8), ([3, 0, 0, 1], 2, 9), ([-186, 132, -63, 64, 46, 47, -61, 74, -33, 168, 104, 116, 38, 187, 90], 17, 8)]
-
+        
         for e in sample:
             self.Check_PolyInverseModOverZn_At(*e)
 
@@ -136,7 +136,7 @@ class Lab04Tester(LabTester):
 
         with self.assertRaises(ValueError):
             self.Call_Function_Gently(PolyInverseModOverQ, (f, r), ValueError)
-
+    
     def Check_PolyInverseModOverQ_At(self, f, r):
         result = self.Call_Function_Gently(PolyInverseModOverQ, (PolynomialInQ(f), r))
 
@@ -166,7 +166,7 @@ class Lab04Tester(LabTester):
     @unittest.skipUnless(TEST_PolyDivModOverQ, 'TEST_PolyDivModOverQ = False')
     def test_PolyDivModOverQ_RandomSample(self):
         """Тестирование функции PolyDivModOverQ большим набором случайных входных параметров."""
-
+        
         for i in range(100):
             params = RandPolyCoefficients(30), RandPolyCoefficients(30)
 
@@ -200,7 +200,7 @@ class Lab04Tester(LabTester):
     #@unittest.skip('temporarily')
     @unittest.skipUnless(TEST_PolyDivModOverZn, 'TEST_PolyDivModOverZn = False')
     def test_PolyDivModOverZn_RandomSample(self):
-
+        
         for i in range(100):
             n = random.randint(1, 100)
             ab = RandPolyCoefficients(40), RandPolyCoefficients(40)
@@ -214,7 +214,7 @@ class Lab04Tester(LabTester):
 
             if lcb == 1:
                 n = lcb
-            elif lcb:
+            elif lcb:                
                 factors = primes(lcb)
                 l = len(factors)
                 k = random.randint(0, l)
